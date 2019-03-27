@@ -4,6 +4,7 @@ import Table from "@material-ui/core/Table";
 import Paper from "@material-ui/core/Paper";
 import DefaultHeader from "./table_headers/DefaultHeader";
 import DefaultBody from "./table_bodies/DefaultBody";
+import classes from "../app.css";
 
 const DatatableBuilder = (
   HeadOfTheTable = null,
@@ -12,7 +13,7 @@ const DatatableBuilder = (
 ) =>
   class extends React.Component {
     render() {
-      const { classes, data } = this.props;
+      const { data } = this.props;
       const Header = HeadOfTheTable !== null ? HeadOfTheTable : DefaultHeader;
       const Body = BodyOfTheTable !== null ? BodyOfTheTable : DefaultBody;
       return (
@@ -28,8 +29,6 @@ const DatatableBuilder = (
   };
 
 DatatableBuilder.propTypes = {
-  classes: PropTypes.objectOf(PropTypes.object).isRequired,
   data: PropTypes.objectOf(PropTypes.object).isRequired
-};  
-
+};
 export default DatatableBuilder;
