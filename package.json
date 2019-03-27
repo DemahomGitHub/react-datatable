@@ -50,15 +50,20 @@
     "start": "webpack --watch",
     "test": "jest --verbose",
     "storybook": "start-storybook -p 6006",
+
     "deploy-storybook": "storybook-to-ghpages",
+    "prettier": "prettier --write *.{js,jsx}",
     "build-storybook": "build-storybook"
   },
   "husky": {
     "hooks": {
+
       "pre-commit": "lint-staged && jest --verbose"
     }
   },
   "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
     "testPathIgnorePatterns": [
       "/node_modules/",
       "/storybook-static/"
@@ -69,7 +74,7 @@
   },
   "lint-staged": {
     "**/*.{js,jsx}": [
-      "prettier --write",
+      "prettier --write *.{js,jsx}",
       "eslint **/*.{js,jsx} --fix",
       "git add"
     ]

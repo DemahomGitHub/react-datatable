@@ -3,9 +3,10 @@
 }
 
 .root {
-  width: 100vw,
+  width: 100vw;
 }
 
 .table {
-  width: 100vw,
+  width: 100vw;
+  margin-top: 5px;
 }
