@@ -7,20 +7,18 @@ import DefaultBody from "./table_bodies/DefaultBody";
 import classes from "../app.css";
 
 const DatatableBuilder = (
-  HeadOfTheTable = null,
-  BodyOfTheTable = null,
+  HeadOfTheTable = DefaultHeader,
+  BodyOfTheTable = DefaultBody,
   FootOfTheTable = null
 ) =>
   class extends React.Component {
     render() {
       const { data } = this.props;
-      const Header = HeadOfTheTable !== null ? HeadOfTheTable : DefaultHeader;
-      const Body = BodyOfTheTable !== null ? BodyOfTheTable : DefaultBody;
       return (
         <Paper className={classes.root}>
           <Table className={classes.table}>
-            {Header !== null && <Header columns={data.columns} />}
-            {Body !== null && <Body rows={data.rows} />}
+            {HeadOfTheTable !== null && <HeadOfTheTable columns={data.columns} />}
+            {BodyOfTheTable !== null && <BodyOfTheTable rows={data.rows} />}
             {FootOfTheTable !== null && <FootOfTheTable />}
           </Table>
         </Paper>
